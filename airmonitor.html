@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add this in the <head> section of your HTML file -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="airmonitor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">MyLogo</a>
+        <ul class="nav-links">
+          <li><a href="airmonitor.html">Air Monitor</a></li>
+          <li><a href="airpurifier.html">Air Purifier</a></li>
+          <li><a href="face-mask.html">Face mask</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </nav> 
+     <section class="air-monitor-banner">
+        <div class="banner-text">
+            <h2 class="banner-text-h2">Assess Air Pollution with Our Intelligent Air Quality Monitors</h2>
+            <p id="banner-text-p">Monitor, Evaluate, and Manage Your Air Quality with Precision Tools.</p>
+            <div class="air-monitor-btn">
+                <button class="banner-text-btn"><p>Contact Us</p></button>
+            </div>
+        </div>
+       
+        <div class="main-images">
+            <img src="./assets/screen.png" alt="">
+        </div>
+    </section> 
+    <main class="air-monitor-content">
+        <!-- <div class="indoor-air-monitor">
+            <div class="indoor-air-monitor-left">
+                <h3>Indoor Air Quality Monitor</h3>
+                <p>The AirQuality Monitor tracks indoor air quality in homes, schools, or workplaces, detecting pollutants from activities like cooking, cleaning, smoking, wood burning, interior decorating, and external sources such as wildfire smoke and traffic emissions. It provides real-time and historical data accessible through the free IQAir AirVisual mobile app.</p>
+                <div>
+                    <button class="indoor-btn"><p>Know More</p></button>
+                </div>
+            </div>
+            <div class="indoor-air-monitor-right">
+                <img src="./assets/close-up-finger-setting-alarm.jpg" alt="">
+            </div>
+            
+        </div>
+
+        <div class="outdoor-air-monitor">
+            <div class="outdoor-air-monitor-right">
+                <img src="./assets/outdoor-air-monitor.jpg" alt="">
+            </div>
+
+            <div class="outdoor-air-monitor-left">
+                <h3>Outdoor Air Quality Monitor</h3>
+                <p>A cutting-edge outdoor air quality monitor that delivers precise, real-time data on the air quality near your home, school, or workplace. Ideal for tracking pollution from traffic, industrial activities, agricultural burning, or wildfires. Access current and historical air quality data through the free mobile app, and share your sensor readings with a global community</p>
+                <div>
+                    <button class="outdoor-btn"><p>Know More</p></button>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="indoor-air-monitor" data-aos="fade-up">
+            <div class="indoor-air-monitor-left" data-aos="fade-up">
+                <h3>Indoor Air Quality Monitor</h3>
+                <p>The AirQuality Monitor tracks indoor air quality in homes, schools, or workplaces, detecting pollutants from activities like cooking, cleaning, smoking, wood burning, interior decorating, and external sources such as wildfire smoke and traffic emissions. It provides real-time and historical data accessible through the free IQAir AirVisual mobile app.</p>
+                <div>
+                    <button class="indoor-btn"><p>Know More</p></button>
+                </div>
+            </div>
+            <div class="indoor-air-monitor-right" data-aos="fade-left">
+                <img src="./assets/close-up-finger-setting-alarm.jpg" alt="">
+            </div>
+        </div>
+        
+        <div class="outdoor-air-monitor" data-aos="fade-up">
+            <div class="outdoor-air-monitor-right" data-aos="fade-right">
+                <img src="./assets/outdoor-air-monitor.jpg" alt="">
+            </div>
+            <div class="outdoor-air-monitor-left" data-aos="fade-up">
+                <h3>Outdoor Air Quality Monitor</h3>
+                <p>A cutting-edge outdoor air quality monitor that delivers precise, real-time data on the air quality near your home, school, or workplace. Ideal for tracking pollution from traffic, industrial activities, agricultural burning, or wildfires. Access current and historical air quality data through the free mobile app, and share your sensor readings with a global community.</p>
+                <div>
+                    <button class="outdoor-btn"><p>Know More</p></button>
+                </div>
+            </div>
+        </div>
+        
+
+        <section class="pollutants">
+            <div class="upper-section">
+                <p>The air quality monitors make it easy to understand what's in your air</p>
+            </div>
+            <div class="lower-section">
+                <div class="lower-pollutant">
+                    <img src="./assets/AQI.webp" alt="">
+                    <span>AQI</span>
+                </div>
+                <div class="lower-pollutant">
+                    <img src="./assets/PM1.avif" alt="">
+                    <span>PM1</span>
+                </div>
+                <div class="lower-pollutant">
+                    <img src="./assets/PM2_5.webp" alt="">
+                    <span>PM2.5</span>
+                </div>
+                <div class="lower-pollutant">
+                    <img src="./assets/PM10.webp" alt="">
+                    <span>PM10</span>
+                </div>
+                <div class="lower-pollutant">
+                    <img src="./assets/CO2.webp" alt="">
+                    <span>CO2</span>
+                </div>
+                <div class="lower-pollutant">
+                    <img src="./assets/Temperature.webp" alt="">
+                    <span>Tenperature</span>
+                </div>
+                <div class="lower-pollutant">
+                    <img src="./assets/Humidity.webp" alt="">
+                    <span>Humidity</span>
+                </div>
+
+                
+            </div>  
+        </section>
+
+
+        <section class="pm25">
+            <h2>PM2.5 Air Quality Monitor </h2>
+            <div class="pm25-content">
+
+                <div class="pm25-left">
+                    <div class="pm25-left-content">
+                        <img src="./assets/pm2.5.png" alt="">
+                        <h3>Real-Time PM2.5</h3>
+                        <p>Pocket Monitor helps you to track real-time PM2.5 pollution level wherever you go indoor & outdoor. </p>
+                    </div>
+                    <div class="pm25-left-content">
+                        <img src="./assets/icons8-battery-50.png" alt="">
+                        <h3>450 mAh Lithium Battery</h3>
+                        <p>Charge it once and use it a lot with 450 mAh lithium battery last for upto 3-4 hours.</p>
+                    </div>
+                </div>
+
+                <div class="animated-circle">
+                    <img src="./assets/pm25-detector-removebg-preview.png" class="center-image" alt="">
+                </div>
+
+                <div class="pm25-right">
+                    <div class="pm25-right-content">
+                        <img src="./assets/icons8-wi-fi-48.png" alt="">
+                        <h3>WiFi Enabled</h3>
+                        <p>The smallest PM2.5 monitor has the WiFi connectivity feature to analyze the data on mobile app.</p>
+                    </div>
+                    <div class="pm25-right-content">
+                        <img src="./assets/rectangle-icon.png" alt="">
+                        <h3>LCD Display Screen</h3>
+                        <p>The LCD display screen gives a clear PM reading indicating if the Air is safe or not.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+    AOS.init({
+        duration: 1000,  // Animation duration in milliseconds
+        once: false,     // Animation should happen every time the element comes into view
+        offset: 100,     // Offset from the original trigger point
+    });
+    
+    </script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+

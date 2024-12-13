@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <!-- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" />
+  <!-- <script src="https://unpkg.com/leaflet-heatmap/dist/leaflet-heatmap.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/leaflet.heat/dist/leaflet-heat.js"></script> -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+  <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+
+  <style>
+    /* #windy {
+        width: 100%;
+        height: 400px;
+    } */
+    #windy-widget {
+            width: 100%;
+            height: 500px;
+        }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">MyLogo</a>
+    <ul class="nav-links">
+      <li><a href="airmonitor.html">Air Monitor</a></li>
+      <li><a href="airpurifier.html">Air Purifier</a></li>
+      <li><a href="face-mask.html">Face mask</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <header>
+    <h2>Explore air quality</h2>
+
+    <!-- <div class="search">
+      <input placeholder="Your Country, city or location" type="text">
+      <button type="submit">Search</button>
+    </div> -->
+
+    <div class="search">       
+      <label for="location-search" class="sr-only">Search Location</label>
+      <input id="location-search" placeholder="Your Country, City, or Location" type="text" aria-label="Search for location">
+      <button id="search-button" type="submit" aria-label="Search">Search</button>
+    </div>
+
+  </header>
+
+   <!-- <div id="map"></div>  -->
+   <!-- <div id="windy"></div>  -->
+  
+   <div id="windy-widget">
+       <iframe
+           id="windy-frame"
+           width="100%"
+           height="500"
+           src="https://embed.windy.com/embed2.html?lat=28.6139&lon=77.2090&zoom=5&level=surface&overlay=pm2p5&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=28.6139&detailLon=77.2090&metricWind=default&metricTemp=default&radarRange=-1&stations"
+           frameborder="0">
+       </iframe>
+   </div>
+
+
+  <main>
+
+    <!-- <div class="container hero-section">
+      <div class="row align-items-center" style="background-image: url('assets/jj.png'); background-size: cover;
+        
+        background-repeat: no-repeat;
+        background-position: 20px -90px;">
+        
+        <div class="col-lg-6">
+          
+        </div>
+
+       
+        <div class="col-lg-6 py-4">
+          <p class="text-muted-small">Your home comfort experts</p>
+          <h1 style="text-align: left; font-weight: 600; font-family: 'Montserrat',sans-serif;">
+            Quality Heating & <span class="" style="color: #234982;">Cooling Services</span>
+          </h1>
+          <p>We provide customers with an industry-leading 10-year installation warranty and a two-year service and
+            repair warranty. With most companies, you will get a standard manufacturer's warranty on installations and a
+            one-year warranty on service and repair work.</p>
+          <p>We believe our warranties set us apart from our competitors and show our commitment to quality work and
+            service.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div> -->
+
+<!-- 
+    <div class="container hero-section">
+      <div 
+        class="row align-items-center"
+        style="
+          background-image: url('assets/jj.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        "
+      >
+       
+        <div class="col-lg-6 col-md-6 col-sm-12 text-center py-3">
+         
+        </div>
+    
+      
+        <div class="col-lg-6 col-md-6 col-sm-12 py-4 text-center text-md-start">
+          <p class="text-muted-small">Your home comfort experts</p>
+          <h1 
+            style="font-weight: 600; font-family: 'Montserrat', sans-serif; color: #000;"
+          >
+            Quality Heating & <span style="color: #234982;">Cooling Services</span>
+          </h1>
+          <p>
+            We provide customers with an industry-leading 10-year installation warranty 
+            and a two-year service and repair warranty. With most companies, you will get a 
+            standard manufacturer's warranty on installations and a one-year warranty on service 
+            and repair work.
+          </p>
+          <p>
+            We believe our warranties set us apart from our competitors and show our commitment 
+            to quality work and service.
+          </p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div> -->
+    
+
+    <div class="container services-section" style="box-shadow: none;">
+      <div class="row">
+        <div class="col-12">
+          <p class="text-uppercase text-primary fw-semibold">Our Services</p>
+          <h2>Stop worry, we're here to help you solve it</h2>
+          <p class="lead">Qui culpa qui consequat officia cillum quis irure aliquip ut dolore sit eu culpa ut irure nisi
+            occaecat dolore adipisicing do pariatur.</p>
+        </div>
+      </div>
+
+      <div class="row gy-4">
+        <!-- Card 1 -->
+        <div class="col-lg-4">
+          <div class="card">
+            <img src="assets/do and dont air pollution.jpg" class="card-img-top" alt="Installation">
+            <div class="card-body">
+              <h5 class="card-title">Installation</h5>
+              <p class="card-text">Trust us to deliver reliable solutions, exceptional service, and peace of mind for
+                all your HVAC needs.</p>
+              <a href="#" class="btn" style="color: #234982; font-size: 14px; padding: 0;">Read more</a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-lg-4">
+          <div class="card">
+            <img src="assets/full-shot-blurry-couple-sitting-couch_23-2149308945.jpg" class="card-img-top" alt="Repair">
+            <div class="card-body">
+              <h5 class="card-title">Repair</h5>
+              <p class="card-text">Trust us to deliver reliable solutions, exceptional service, and peace of mind for
+                all your HVAC needs.</p>
+              <a href="#" class="btn" style="color: #234982; font-size: 14px; padding: 0;">Read more</a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-lg-4">
+          <div class="card">
+            <img src="assets/full-shot-woman-getting-warm-near-heater_23-2149395807.jpg" class="card-img-top"
+              alt="Maintenance">
+            <div class="card-body">
+              <h5 class="card-title">Maintenance</h5>
+              <p class="card-text">Trust us to deliver reliable solutions, exceptional service, and peace of mind for
+                all your HVAC needs.</p>
+              <a href="#" class="btn" style="color: #234982; font-size: 14px; padding: 0;">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="choices">
+            <div class="choice">
+                <h2>Eye on Air Quality</h2>
+                <p>You can monitor the air quality of your home and surrounding</p>
+                <button>Air Monitors</button>
+            </div>
+
+            <div class="choice">
+                <h2>Safe Option</h2>
+                <p>you can choose the right purifier for your room or car varying from small to large</p>
+                <button>Check it out</button>
+            </div>
+
+            <div class="choice">
+                <h2>Precautions</h2>
+                <p>Follow certain guidelines and be aware </p>
+                <button>Assistance</button>
+            </div>
+
+            <div class="choice">
+                <h2>Rising cases</h2>
+                <p>With increasing time air quality also declines</p>
+                <button>Current Scenerio</button>
+            </div>
+        </div> -->
+  </main>
+
+  <div class="floater" style="background-image: url('assets/12.webp');">
+    <div class="floater-text">
+      <p class="headline animate__animated animate__fadeInDown">Breathe Easy: Protect Yourself from<br> Dangerous Air
+        Pollution!</p>
+
+      <p class="description animate__animated animate__fadeInDown animate__delay-1s">
+        Air pollution is a leading cause of health problems worldwide. The World Health Organization (WHO) reports
+        that it contributes to approximately 7 million premature deaths annually, linked to diseases such as heart
+        disease, stroke, chronic lung conditions, lung cancer, and respiratory infections. Protecting yourself from
+        harmful pollutants is crucial for your health and well-being.
+      </p>
+    </div>
+
+    <!-- Floating icons container -->
+    <div class="float-icons">
+      <span class="float-icon-1">PM10</span>
+      <span class="float-icon-1">NO2</span>
+      <span class="float-icon-1">O3</span>
+      <span class="float-icon-1">CO</span>
+      <span class="float-icon-1">PM2.5</span>
+      <span class="float-icon-1">SO2</span>
+    </div>
+  </div>
+
+  
+   <!-- <div class="feature-cards-section">
+    <h2>Our Features</h2>
+    <div class="feature-cards-container">
+
+        <div class="feature-card1">
+            <div class="feature-card-left">
+                <h3>Calibration and network management</h3>
+                <p>Our Network, Support, and IT teams collaborate seamlessly to ensure accurate, real-time transmission of AQI data from sensors. This joint effort guarantees the efficient flow of information to provide you with the best service possible. By handling the data effectively, we deliver reliable updates on air quality. These updates help you make informed decisions about your health and outdoor activities. Together, we aim to improve your experience with timely, accurate AQI information.</p>
+            </div>
+            <div class="feature-card-right">
+                <img src="./assets/network-team-removebg-preview.png" alt="">
+            </div>
+        </div>
+
+          <div class="feature-card2">
+            <div class="feature-card-left">
+                <h3>Parameters and Software tools for providing better experience</h3>
+                <p>To provide a better experience, we utilize key parameters such as real-time data accuracy, sensor calibration, and network reliability to ensure smooth data transmission. Our teams leverage advanced software tools like data analytics platforms, cloud services, and monitoring dashboards to process and display AQI data efficiently. These tools help in tracking air quality updates and delivering timely, actionable insights. By combining robust infrastructure and intelligent software, we ensure a seamless and user-friendly service. </p>
+            </div>
+            <div class="feature-card-right">
+                <img src="./assets/laptop-2298286_1920.png" alt="">
+            </div>
+        </div>
+
+        <div class="feature-card3">
+            <div class="feature-card-left">
+                <h3>Air Quality measurement</h3>
+                <p>Air quality measurement involves monitoring pollutants like PM2.5, PM10, NO2, O3, and CO to assess the safety of the air we breathe. Sensors collect real-time data, which is processed to calculate the Air Quality Index (AQI). This index helps categorize air quality into levels such as Good, Moderate, or Hazardous. Accurate measurement ensures timely updates for health and safety awareness.</p>
+            </div>
+            <div class="feature-card-right">
+                <img src="./assets/air quality.jpg" alt="">
+            </div>
+        </div> 
+        
+    </div>
+</div>  -->
+
+<!-------------------------------------------------------------------------------------------->
+<div class="feature-cards-section">
+  <h2>Our Features</h2>
+  <div class="feature-cards-container">
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="feature-card1">
+            <div class="feature-card1-left">
+                <h3>Calibration and network management</h3>
+                <p>Our Network, Support, and IT teams collaborate seamlessly to ensure accurate, real-time transmission of AQI data from sensors. This joint effort guarantees the efficient flow of information to provide you with the best service possible. By handling the data effectively, we deliver reliable updates on air quality. These updates help you make informed decisions about your health and outdoor activities. Together, we aim to improve your experience with timely, accurate AQI information.</p>
+            </div>
+            <div class="feature-card1-right">
+                <img src="./assets/network-team-removebg-preview.png" alt="" class="card1-slider">
+            </div>
+        </div>
+
+        </div>
+        <div class="carousel-item">
+          <div class="feature-card2">
+            <div class="feature-card2-left">
+              <h3>Parameters and Software tools for providing better experience</h3>
+              <p>To provide a better experience, we utilize key parameters such as real-time data accuracy, sensor calibration, and network reliability to ensure smooth data transmission. Our teams leverage advanced software tools like data analytics platforms, cloud services, and monitoring dashboards to process and display AQI data efficiently. These tools help in tracking air quality updates and delivering timely, actionable insights. By combining robust infrastructure and intelligent software, we ensure a seamless and user-friendly service. </p>
+            </div>
+            <div class="feature-card2-right">
+                <img src="./assets/laptop-2298286_1920.png" alt="" class="card2-slider">
+            </div>
+        </div>
+
+        </div> 
+        <div class="carousel-item">
+          <div class="feature-card3">
+            <div class="feature-card3-left">
+              <h3>Air Quality measurement</h3>
+              <p>Air quality measurement involves monitoring pollutants like PM2.5, PM10, NO2, O3, and CO to assess the safety of the air we breathe. Sensors collect real-time data, which is processed to calculate the Air Quality Index (AQI). This index helps categorize air quality into levels such as Good, Moderate, or Hazardous. Accurate measurement ensures timely updates for health and safety awareness.</p>
+            </div>
+            <div class="feature-card3-right">
+                <img src="./assets/air quality.jpg" alt="" class="card3-slider">
+            </div>
+        </div>
+
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+ 
+</div>
+
+
+<!-------------------------------------------------------------------------------------------->
+
+<div class="demo-container">
+  <div class="demo-container-content">
+    <div class="demo-container-content-left">
+      <img src="./assets/demo-final-pic-removebg-preview.png" alt="">
+    </div>
+
+    <div class="demo-container-content-right">
+      <p>Start using a reliable air quality data platform</p>
+      <!-- <button type="text"><a href="#contact-us.html">Get A demo</a></button> -->
+      <a href="contact-us.html" class="demo-contact-button">Get a demo</a>
+
+    </div>
+  </div>
+</div>
+
+
+
+  <footer class="px-5 py-19">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        <form>
+          <h5>Subscribe to our newsletter</h5>
+          <p>Monthly digest of what's new and exciting from us.</p>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 border-top">
+      <p>© 2024 Company, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#twitter"></use>
+            </svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#instagram"></use>
+            </svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#facebook"></use>
+            </svg></a></li>
+      </ul>
+    </div>
+  </footer>   
+
+
+<!-- <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> -->
+<!-- <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- <script>
+        // Register GSAP ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+    
+        const cards = document.querySelectorAll(".feature-cards-container > div"); // Select all cards
+        const timeline = gsap.timeline();
+        let cardHeight;
+    
+        // Initialize card stacking animation
+        function initCards() {
+            timeline.clear();
+            cardHeight = cards[0].offsetHeight;
+    
+            cards.forEach((card, index) => {
+                if (index > 0) {
+                    // Position each card below the previous one
+                    gsap.set(card, { y: index * cardHeight });
+    
+                    // Animate cards to stack over each other
+                    timeline.to(card, { y: 0, duration: index * 0.5, ease: "none" }, 0);
+                }
+            });
+        }
+    
+        // Call initialization function
+        initCards();
+    
+        // Create ScrollTrigger
+        ScrollTrigger.create({
+            trigger: ".feature-cards-section",
+            start: "top top",
+            pin: true,
+            end: () => `+=${cards.length * cardHeight}`,
+            scrub: true,
+            animation: timeline,
+            markers: true, 
+            invalidateOnRefresh: true, // Recalculate values on resize
+        });
+    
+        // Update card positions on refresh
+        ScrollTrigger.addEventListener("refreshInit", initCards);
+    </script>  -->
+
+      <!-- <script>
+      // Register GSAP ScrollTrigger plugin
+      gsap.registerPlugin(ScrollTrigger);
+  
+      const cards = document.querySelectorAll(".feature-cards-container > div"); // Select all cards
+      const timeline = gsap.timeline();
+      let cardHeight;
+  
+      // Initialize card stacking animation
+      function initCards() {
+          timeline.clear(); // Clear previous timeline animations
+          cardHeight = cards[0].offsetHeight; // Get card height dynamically
+  
+          cards.forEach((card, index) => {
+              if (index > 0) {
+                  // Position each card below the previous one
+                  gsap.set(card, { y: index * cardHeight });
+  
+                  // Animate cards to stack over each other
+                  // timeline.to(card, { y: 0, duration: 0.5, ease: "power1.inOut" }, index * 0.2);
+                  timeline.to(card, { y: 0, duration: index * 0.5, ease: "none" }, 0);
+
+              }
+          });
+      }
+  
+      // Call initialization function
+      initCards();
+  
+      // Create ScrollTrigger
+      ScrollTrigger.create({
+          trigger: ".feature-cards-section",
+          start: "top top",
+          pin: true,
+          end: () => `+=${cards.length * cardHeight}`, // Calculate animation end dynamically
+          scrub: true,
+          pinSpacing: true, // Maintain spacing during pinning
+          animation: timeline,
+          invalidateOnRefresh: true, // Recalculate values on resize
+      });
+  
+      // Update card positions on refresh
+      ScrollTrigger.addEventListener("refreshInit", initCards);
+  
+      // Reinitialize on window resize
+      window.addEventListener("resize", () => {
+          ScrollTrigger.refresh(); // Refresh ScrollTrigger on resize
+      });
+     </script>   -->
+
+   
+   
+ <!-- <script>
+  const apiKey = 'd27c65a6b85a84ec54a00b04445cb35f';
+  // const map = L.map('map').setView([20.5937, 78.9629], 5,); 
+  const map = L.map('map', {
+    center: [20.5937, 78.9629], // Center on India
+    zoom: 5,
+    
+  });
+
+  // Adding OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  const cities = [
+    { name: "Delhi", lat: 28.6139, lon: 77.2090 },
+    { name: "Mumbai", lat: 19.0760, lon: 72.8777 },
+    { name: "Bengaluru", lat: 12.9716, lon: 77.5946 },
+    {name: "Kolkata", lat: 22.5726, lon: 88.3639 },
+    { name: "Jaipur", lat: 26.90, lon: 75.73 },
+    { name: "Chittorgarh, Rajasthan", lat: 24.87, lon: 74.62 },
+    { name: "Ratnagiri, Maharashtra", lat: 16.99, lon: 73.30 },
+    { name: "Raipur Chattisgurh", lat: 21.25, lon: 81.62 },
+    { name: "Sagar, Karnataka", lat: 23.30, lon: 80.00 },
+    { name: "Mahuva, Gujarat", lat: 21.10, lon: 71.77 },
+    { name: "Ahmedabad, Gujarat", lat: 23.0225, lon: 72.5714 },
+    { name: "Hyderabad, Telangana", lat: 17.3850, lon: 78.4867 },
+    { name: "Lucknow, Uttar Pradesh", lat: 26.8467, lon: 80.9462 },
+    { name: "Pune, Maharashtra", lat: 18.5204, lon: 73.8567 },
+    { name: "Patna, Bihar", lat: 25.5941, lon: 85.1376 },
+    { name: "Surat, Gujarat", lat: 21.1702, lon: 72.8311 },
+    { name: "Kanpur, Uttar Pradesh", lat: 26.4499, lon: 80.3319 },
+    { name: "Nagpur, Maharashtra", lat: 21.1458, lon: 79.0882 },
+    { name: "Visakhapatnam, Andhra Pradesh", lat: 17.6868, lon: 83.2185 },
+    { name: "Thiruvananthapuram, Kerala", lat: 8.5241, lon: 76.9366 },
+    { name: "Madurai, Tamil Nadu", lat: 9.9252, lon: 78.1198 },
+    { name: "Guwahati, Assam", lat: 26.1445, lon: 91.7362 },
+    { name: "Dehradun, Uttarakhand", lat: 30.3165, lon: 78.0322 },
+    { name: "Bhopal, Madhya Pradesh", lat: 23.2599, lon: 77.4126 },
+    { name: "Indore, Madhya Pradesh", lat: 22.7196, lon: 75.8577 },
+    { name: "Ranchi, Jharkhand", lat: 23.3441, lon: 85.3096 },
+    { name: "Vadodara, Gujarat", lat: 22.3072, lon: 73.1812 },
+    { name: "Shimla, Himachal Pradesh", lat: 31.1048, lon: 77.1734 },
+    { name: "Amritsar, Punjab", lat: 31.6340, lon: 74.8723 },
+    { name: "Vijayawada, Andhra Pradesh", lat: 16.5062, lon: 80.6480 },
+    { name: "Udaipur, Rajasthan", lat: 24.5854, lon: 73.7125 },
+    { name: "Gwalior, Madhya Pradesh", lat: 26.2183, lon: 78.1828 },
+    { name: "Jabalpur, Madhya Pradesh", lat: 23.1815, lon: 79.9864 },
+    { name: "Bhuj, Gujarat", lat: 23.2411, lon: 69.6669 },
+    { name: "Gangtok, Sikkim", lat: 27.3314, lon: 88.6138 },
+    { name: "Aizawl, Mizoram", lat: 23.7271, lon: 92.7176 },
+    { name: "Shillong, Meghalaya", lat: 25.5788, lon: 91.8933 },
+    { name: "Port Blair, Andaman & Nicobar Islands", lat: 11.6234, lon: 92.7265 },
+    { name: "Agartala, Tripura", lat: 23.8315, lon: 91.2868 },
+    // Add remaining cities...
+  ];
+
+  const heatmapData = []; // Array to hold heatmap points
+
+  // Function to calculate AQI based on PM2.5 concentration
+  function calculateAQI(concentration) {
+    let aqi = 0;
+    if (concentration <= 12) {
+      aqi = concentration * (50 / 12);
+    } else if (concentration <= 35.4) {
+      aqi = ((concentration - 12.1) * (50 / 23.4)) + 51;
+    } else if (concentration <= 55.4) {
+      aqi = ((concentration - 35.5) * (50 / 19.9)) + 101;
+    } else if (concentration <= 150.4) {
+      aqi = ((concentration - 55.5) * (50 / 94.9)) + 151;
+    } else if (concentration <= 250.4) {
+      aqi = ((concentration - 150.5) * (50 / 99.9)) + 201;
+    } else {
+      aqi = ((concentration - 250.5) * (50 / 249.9)) + 301;
+    }
+    return Math.round(aqi);
+  }
+
+  // Function to determine AQI category and color
+  function getAQICategory(aqi) {
+    const aqiCategories = [
+      { range: [0, 50], label: 'Good', color: 'green' },
+      { range: [51, 100], label: 'Moderate', color: 'yellow' },
+      { range: [101, 150], label: 'Unhealthy for Sensitive Groups', color: 'orange' },
+      { range: [151, 200], label: 'Unhealthy', color: 'red' },
+      { range: [201, 300], label: 'Very Unhealthy', color: 'purple' },
+      { range: [301, Infinity], label: 'Hazardous', color: 'maroon' }
+    ];
+    return aqiCategories.find(c => aqi >= c.range[0] && aqi <= c.range[1]) || { label: 'Unknown', color: 'gray' };
+  }
+
+  // Fetch AQI data for a specific city
+  async function fetchAQIData(city) {
+    try {
+      const response = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${city.lat}&lon=${city.lon}&appid=${apiKey}`);
+      const data = await response.json();
+
+      if (data && data.list) {
+        const components = data.list[0].components; // Pollutant components
+        const pm2_5 = components.pm2_5;  // PM2.5 concentration
+
+        const aqi = calculateAQI(pm2_5); // Calculate AQI based on PM2.5 concentration
+        const category = getAQICategory(aqi);
+
+        // Create a custom marker with the corresponding color
+        const icon = L.divIcon({
+          className: 'custom-marker',
+          html: `<div style="background-color:${category.color};width:30px;height:30px;border-radius:50%;"></div>`
+        });
+
+        // Add the marker to the map at the city's location
+        L.marker([city.lat, city.lon], { icon })
+          .bindPopup(`
+              <b>${city.name}</b><br>
+              AQI: ${aqi} (${category.label})<br>
+              PM2.5: ${pm2_5} µg/m³
+          `).addTo(map);
+
+        // Add the AQI value as heatmap data
+        heatmapData.push([city.lat, city.lon, pm2_5]); // Intensity corresponds to PM2.5 concentration
+      } else {
+        console.error(`Error fetching AQI data for ${city.name}:`, data);
+      }
+    } catch (error) {
+      console.error(`Error fetching data for ${city.name}:`, error);
+    }
+  }
+
+  // Fetch AQI data for each city in the locations array
+  cities.forEach(fetchAQIData);
+
+  // Add a heatmap layer after fetching all data
+  // setTimeout(() => {
+  //   const heat = L.heatLayer(heatmapData, {
+  //     radius: 50,  
+  //     blur: 35,   
+  //     maxZoom: 10, 
+  //   }).addTo(map);
+  // }, 3000); 
+
+  setTimeout(() => {
+  const heat = L.heatLayer(heatmapData, {
+    radius: 35,  
+    blur: 45,   
+    maxZoom: 10, 
+    max: 1.0,    
+    gradient: {
+      0.2: 'blue', 
+      0.4: 'green', 
+      0.6: 'yellow', 
+      0.8: 'orange', 
+      1.0: 'red'    
+    }
+  }).addTo(map);
+}, 3000); 
+
+ 
+//  document.addEventListener('wheel', function (e) {
+//     if (e.ctrlKey) {
+//       e.preventDefault(); 
+//       if (e.deltaY < 0) {
+        
+//         map.zoomIn();
+//       } else {
+        
+//         map.zoomOut();
+//       }
+//     }
+//   }, { passive: false });
+
+
+
+
+
+  
+  
+</script>      -->
+
+<!-- <script>
+  const options = {
+      key: 'YjzPf5JlimZY4bIuMymR3l80lNf5hb5Y',  // Your new Windy API key
+      lat: 28.6139,  // Latitude for New Delhi (You can change this to any location)
+      lon: 77.2090,  // Longitude for New Delhi (You can change this to any location)
+      zoom: 5
+  };
+
+  // Initialize Windy map
+  windyInit(options, function(windyAPI) {
+      console.log("Windy map initialized!");
+
+      const { store, map } = windyAPI;
+
+      // Set the overlay to 'airQuality' to show air quality data on the map
+      store.set('overlay', 'airQuality');
+
+      // Optionally, you can set specific layers like PM2.5, CO, or AQI
+      store.set('level', 'surface');  // Choose the level like 'surface', '850h', etc.
+
+      map.on('load', () => {
+          console.log("Map has loaded.");
+      });
+  });
+
+
+</script> -->
+ 
+ <!-- <script>
+  const options = {
+      key: 'YjzPf5JlimZY4bIuMymR3l80lNf5hb5Y',  // Your Windy API key
+      lat: 28.6139,  // Latitude for New Delhi (You can change this to any location)
+      lon: 77.2090,  // Longitude for New Delhi (You can change this to any location)
+      zoom: 5
+  };
+
+  // Initialize Windy map
+  windyInit(options, function(windyAPI) {
+      console.log("Windy map initialized!");
+
+      const { store, map } = windyAPI;
+
+      // Set the overlay to 'airQuality' to show air quality data on the map
+      store.set('overlay', 'pm25');
+
+      // Optionally, you can set specific layers like PM2.5, CO, or AQI
+      store.set('level', 'surface');  // Choose the level like 'surface', '850h', etc.
+
+      // Check if the overlay is set and log to the console
+      console.log("Air quality overlay is set.");
+      
+      // Add event listener for when the map is loaded
+      map.on('load', () => {
+          console.log("Map has loaded.");
+      });
+
+      // Observe any changes to the overlay (optional)
+      store.on('overlay', function(value) {
+          console.log("Overlay changed:", value);
+      });
+
+      // Log the air quality data for the set location
+      store.on('data', function(data) {
+          console.log("Air quality data:", data);
+      });
+  });
+</script>  -->
+
+
+
+<!-- <script>
+  const apiKey = 'd27c65a6b85a84ec54a00b04445cb35f';
+  const map = L.map('map', {
+    center: [20.5937, 78.9629], // Center on India
+    zoom: 5,
+    scrollWheelZoom: false // Disable default scroll zoom
+  });
+
+  // Adding OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  const cities = [
+    { name: "Delhi", lat: 28.6139, lon: 77.2090 },
+    { name: "Mumbai", lat: 19.0760, lon: 72.8777 },
+    { name: "Bengaluru", lat: 12.9716, lon: 77.5946 },
+    // Add remaining cities here...
+  ];
+
+  const heatmapData = []; // Array to hold heatmap points
+
+  // Function to calculate AQI based on PM2.5 concentration
+  function calculateAQI(concentration) {
+    let aqi = 0;
+    if (concentration <= 12) {
+      aqi = concentration * (50 / 12);
+    } else if (concentration <= 35.4) {
+      aqi = ((concentration - 12.1) * (50 / 23.4)) + 51;
+    } else if (concentration <= 55.4) {
+      aqi = ((concentration - 35.5) * (50 / 19.9)) + 101;
+    } else if (concentration <= 150.4) {
+      aqi = ((concentration - 55.5) * (50 / 94.9)) + 151;
+    } else if (concentration <= 250.4) {
+      aqi = ((concentration - 150.5) * (50 / 99.9)) + 201;
+    } else {
+      aqi = ((concentration - 250.5) * (50 / 249.9)) + 301;
+    }
+    return Math.round(aqi);
+  }
+
+  // Function to determine AQI category and color
+  function getAQICategory(aqi) {
+    const aqiCategories = [
+      { range: [0, 50], label: 'Good', color: 'green' },
+      { range: [51, 100], label: 'Moderate', color: 'yellow' },
+      { range: [101, 150], label: 'Unhealthy for Sensitive Groups', color: 'orange' },
+      { range: [151, 200], label: 'Unhealthy', color: 'red' },
+      { range: [201, 300], label: 'Very Unhealthy', color: 'purple' },
+      { range: [301, Infinity], label: 'Hazardous', color: 'maroon' }
+    ];
+    return aqiCategories.find(c => aqi >= c.range[0] && aqi <= c.range[1]) || { label: 'Unknown', color: 'gray' };
+  }
+
+  // Fetch AQI data for a specific city
+  async function fetchAQIData(city) {
+    try {
+      const response = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${city.lat}&lon=${city.lon}&appid=${apiKey}`);
+      const data = await response.json();
+
+      if (data && data.list) {
+        const components = data.list[0].components; // Pollutant components
+        const pm2_5 = components.pm2_5;  // PM2.5 concentration
+
+        const aqi = calculateAQI(pm2_5); // Calculate AQI based on PM2.5 concentration
+        const category = getAQICategory(aqi);
+
+        // Create a custom marker with the corresponding color
+        const icon = L.divIcon({
+          className: 'custom-marker',
+          html: `<div style="background-color:${category.color};width:30px;height:30px;border-radius:50%;"></div>`
+        });
+
+        // Add the marker to the map at the city's location
+        L.marker([city.lat, city.lon], { icon })
+          .bindPopup(`
+              <b>${city.name}</b><br>
+              AQI: ${aqi} (${category.label})<br>
+              PM2.5: ${pm2_5} µg/m³
+          `).addTo(map);
+
+        // Add the AQI value as heatmap data
+        heatmapData.push([city.lat, city.lon, pm2_5]); // Intensity corresponds to PM2.5 concentration
+      } else {
+        console.error(`Error fetching AQI data for ${city.name}:`, data);
+      }
+    } catch (error) {
+      console.error(`Error fetching data for ${city.name}:`, error);
+    }
+  }
+
+  // Fetch AQI data for each city in the locations array
+  cities.forEach(fetchAQIData);
+
+  // Add a heatmap layer after fetching all data
+  setTimeout(() => {
+    const heat = L.heatLayer(heatmapData, {
+      radius: 25,  
+      blur: 45,   
+      maxZoom: 10, 
+      max: 1.0,    
+      gradient: {
+        0.2: 'blue', 
+        0.4: 'green', 
+        0.6: 'yellow', 
+        0.8: 'orange', 
+        1.0: 'red'    
+      }
+    }).addTo(map);
+  }, 3000); 
+
+  // Add custom scroll zoom functionality
+  document.addEventListener('wheel', function (e) {
+    if (e.ctrlKey) {
+      e.preventDefault(); // Prevent default scrolling behavior
+      if (e.deltaY < 0) {
+        // Scroll up -> Zoom in
+        map.zoomIn();
+      } else {
+        // Scroll down -> Zoom out
+        map.zoomOut();
+      }
+    }
+  }, { passive: false });
+</script>  -->
+
+
+ <script>
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyD5fLKxQVrS5AUarmRU8uslNYwGptZT0LM",
+  authDomain: "aqms-website-d1ce2.firebaseapp.com",
+  projectId: "aqms-website-d1ce2",
+  storageBucket: "aqms-website-d1ce2.firebasestorage.app",
+  messagingSenderId: "253803587256",
+  appId: "1:253803587256:web:de65a5399388b10ed5364d",
+  measurementId: "G-JYEX8P4FJB"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+ </script>
+
+ 
+<script src="script.js"></script>
+
+</body>
+
+</html>
