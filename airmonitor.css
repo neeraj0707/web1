@@ -1,0 +1,792 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.air-monitor-banner {
+    width: 90%;
+    /* height: 100vh;  */
+    display: flex;
+    margin: auto;
+    align-items: start;
+    padding-top: 130px;
+    flex-direction: column;
+}
+.air-monitor-banner .banner-text {
+    color: white;
+    /* width: 63%; */
+    /* padding: 20px; */
+}
+.air-monitor-banner .banner-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#banner-text-p {
+    padding-top: 30px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #2a2929;
+    overflow: hidden;
+    transition: opacity 0.3s linear;
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'poppins', sans-serif;  */
+    /* font-family: 'inter', sans-serif;                                                                                                                                                                                 */
+}
+
+/* .air-monitor-banner {
+        width: 100%;
+        height: 560px;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+        position: relative;
+        overflow: hidden; 
+}
+    
+ .air-monitor-banner img {
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        object-position: center; 
+        object-fit: contain;
+        object-fit: cover;
+}
+.banner-text {
+    position: absolute;
+    top: 50%; 
+    left: 40%; 
+    transform: translate(-50%, -50%);  
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: white; 
+    z-index: 1; 
+    text-align: left;
+}
+
+.banner-text h1 {
+    font-size: 3rem; 
+    margin: 0;
+    text-align: left;
+    
+    
+}*/
+
+.banner-text{
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    /* flex-direction: column; */
+    /* width: 60%; */
+    /* gap: 44px; */
+}
+
+.banner-text-h2{
+    color: rgb(45 146 83);
+    font-size: 3.5rem;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+.main-images{
+    display: flex;
+}
+.main-images img{
+    width: 400px; 
+}
+.banner-text-writing{
+    width: 70%;
+}
+@media (max-width:1115px){
+    .air-monitor-banner{
+        gap: 50px;
+    }
+}
+@media (max-width:950px){
+    .banner-text{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    .main-images img{
+        width: 300px;
+
+    }
+}
+@media (max-width:400px){
+    .main-images img{
+        width: 200px;
+    }
+}
+
+.banner-text-btn{
+    padding: 10px 25px;
+    /* margin-top: 30px; */
+    border-radius: 13px;
+    background-color: rgba(25, 156, 25, 0.89);
+    border: 1px solid rgb(7, 46, 7);
+    color: white;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+.banner-text-btn:hover{
+    cursor: pointer;
+    background-color: rgb(53, 207, 53);
+}
+.air-monitor-banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(247 235 235 / 51%);
+    z-index: 2;
+}
+.air-monitor-content{
+    width: 80%;
+    /* margin-top: 70px; */
+    margin: auto;
+    margin-top: 100px;
+    
+}
+.indoor-air-monitor{
+    width: 90%;
+    display: flex;
+    gap: 80px; 
+    margin: auto;
+}
+.indoor-air-monitor-left{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.indoor-air-monitor-left h3{
+    font-size: 30px;
+    padding-bottom: 25px;
+    font-weight: 500;
+}
+.indoor-air-monitor-left p{
+    color: rgb(53, 52, 52);
+    font-size: 18px;                                                                                                                                                                                                                                                               ;
+}
+.indoor-btn{
+    padding: 10px 25px;
+    margin-top: 30px;
+    border-radius: 13px;
+    background-color: rgba(25, 156, 25, 0.89);
+    border: 1px solid rgb(7, 46, 7);
+}
+.indoor-btn p{
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+}
+.indoor-btn:hover{
+    cursor: pointer;
+    background-color: rgb(53, 207, 53);
+}
+.indoor-air-monitor-right{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.indoor-air-monitor-right img{
+    width: 80%;
+}
+@media (max-width:674px){
+    .indoor-air-monitor-right{
+        width: 300px;
+        justify-content: flex-start;
+    }
+    .indoor-air-monitor{
+    flex-direction:column ;
+    }
+    .indoor-air-monitor{
+        gap: 50px;
+    }
+    .indoor-air-monitor-left p{
+        font-size: 1rem;
+        line-height: 25px;
+    }
+    .indoor-btn{
+        padding: 3px 12px;
+        border-radius: 6px;
+        
+    }
+    .indoor-btn p{
+        font-size: 0.9rem;
+    }
+    
+    
+}
+/* .outdoor-air-monitor{
+    display: flex;
+    width: 90%;
+    gap: 80px;
+    margin-top: 80px;
+}
+.outdoor-air-monitor-left{
+    width: 90%;
+}
+.outdoor-air-monitor-right{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.outdoor-air-monitor-right img{
+    width: 80%;
+}
+.outdoor-air-monitor-left h3{
+    font-size: 30px;
+    padding-bottom: 25px;
+    font-weight: 500;
+}
+.outdoor-air-monitor-left p{
+    color: rgb(53, 52, 52);
+    font-size: 18px;
+}
+.outdoor-btn{
+    padding: 10px 25px;
+    margin-top: 30px;
+    border-radius: 13px;
+    background-color: rgba(25, 156, 25, 0.89);
+    border: 1px solid rgb(7, 46, 7);
+    transition: background-color 0.3s ease;
+} */
+
+
+
+
+/* Base Styles */
+.outdoor-air-monitor {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    width: 90%;
+    gap: 80px;
+    margin-top: 80px;
+}
+.outdoor-air-monitor-left {
+    flex: 1;
+    width: 90%;
+}
+.outdoor-air-monitor-right {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.outdoor-air-monitor-right img {
+    width: 80%;
+}
+.outdoor-air-monitor-left h3 {
+    font-size: 30px;
+    padding-bottom: 25px;
+    font-weight: 500;
+}
+.outdoor-air-monitor-left p {
+    color: rgb(53, 52, 52);
+    font-size: 18px;
+}
+.outdoor-btn {
+    padding: 10px 25px;
+    margin-top: 30px;
+    border-radius: 13px;
+    background-color: rgba(25, 156, 25, 0.89);
+    border: 1px solid rgb(7, 46, 7);
+    transition: background-color 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+    .outdoor-air-monitor {
+        flex-direction: column; 
+        align-items: center;
+        gap: 50px;
+    }
+    .outdoor-air-monitor-right {
+        order: 2;
+        width: 100%; 
+    }
+    .outdoor-air-monitor-right img {
+        width: 80%; 
+    }
+    .outdoor-air-monitor-left {
+        order: 1; 
+        width: 90%; 
+        text-align: center; 
+    }
+    .outdoor-air-monitor-left h3 {
+        font-size: 24px; 
+        text-align: start;
+    }
+    .outdoor-air-monitor-left p {
+        font-size: 1rem; 
+        text-align: start;
+        line-height: 25px;
+    }
+    .outdoor-btn{
+        padding: 3px 12px;
+        border-radius: 6px;
+        display: flex;
+    }
+}
+
+
+
+
+
+
+.outdoor-btn p{
+    /* font-size: 20px; */
+    color: white;
+    font-weight: 500;
+}
+.outdoor-btn:hover{
+    cursor: pointer;
+    background-color: rgb(53, 207, 53);
+}
+
+/**************************pollutant css************************************/
+ /* .pollutants{
+    padding-top: 150px;
+    padding-bottom: 60px;
+}
+.lower-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 50px;
+}
+.upper-section {
+    text-align: center;
+} 
+.upper-section p{
+    font-size: 25px;
+    font-weight: 400;
+    color: rgb(60, 60, 60);
+}
+.lower-pollutant{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+} */
+
+
+.pollutants {
+    padding-top: 150px;
+    padding-bottom: 60px;
+    width: 90%; /* Ensures proper alignment on smaller screens */
+    margin: 0 auto;
+}
+
+.upper-section {
+    text-align: center;
+}
+
+.upper-section p {
+    font-size: 25px; /* Default font size for larger screens */
+    font-weight: 400;
+    color: rgb(60, 60, 60);
+}
+
+.lower-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centered for smaller screens */
+    gap: 30px; /* Adjusted gap for smaller screens */
+    margin-top: 50px;
+}
+
+.lower-pollutant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px; /* Fixed width for better alignment */
+}
+
+.lower-pollutant img {
+    width: 60px; /* Default size for larger screens */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.lower-pollutant span {
+    font-size: 16px;
+    text-align: center;
+    color: rgb(60, 60, 60);
+}
+
+/* Media Query for Screens Smaller than 768px */
+@media (max-width: 768px) {
+    .upper-section p {
+        font-size: 20px; /* Reduced font size for readability */
+    }
+
+    .lower-section {
+        gap: 20px; /* Reduced gap for smaller layouts */
+    }
+
+    .lower-pollutant {
+        width: 100px; /* Narrower width */
+    }
+
+    .lower-pollutant img {
+        width: 50px; /* Reduced image size */
+    }
+
+    .lower-pollutant span {
+        font-size: 14px; /* Reduced font size */
+    }
+}
+
+/* Media Query for Screens Smaller than 480px */
+@media (max-width: 480px) {
+    .upper-section p {
+        font-size: 18px; /* Smaller font size for very small screens */
+        line-height: 30px ;
+    }
+
+    .lower-section {
+        gap: 15px; /* Smaller gap for compact view */
+    }
+
+    .lower-pollutant {
+        width: 80px; /* Smaller pollutant cards */
+    }
+
+    .lower-pollutant img {
+        width: 50px; /* Further reduced image size */
+    }
+
+    .lower-pollutant span {
+        font-size: 13px; /* Smaller text */
+    }
+}
+
+
+/***************************    PM25    ************************************/
+
+/* .pm25{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
+.pm25 h2{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 400;
+}
+.pm25-content{
+    display: flex;
+    gap: 80px;
+    padding-top: 70px;
+    justify-content: space-between;
+}
+.pm25-left{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: space-between;
+}
+.pm25-left-content{
+    text-align: end;
+}
+.pm25-left-content img{
+    width: 40px;
+}  */
+
+/************************ANIMATED DEVICE **************************/
+
+/* .animated-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 80px;
+  }
+  
+  .center-image {
+    position: relative;
+    z-index: 2;
+    width: 250px; 
+    left: 13%;
+    top: -14%;
+    width: 300px;
+  }
+  
+  .animated-circle::before, .animated-circle::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(0, 255, 0, 0.4); 
+    animation: grow-fade 3s infinite ease-in-out;
+  }
+  
+  .animated-circle::before {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .animated-circle::after {
+    width: 150%;
+    height: 150%;
+    animation-delay: 1.5s; 
+  }
+  
+  @keyframes grow-fade {
+    0% {
+      transform: scale(0.5);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+
+  .pm25-right{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 30%;
+}
+
+.pm25-right-content img{
+    width: 40px;
+}
+.pm25-left-content p{
+    padding-top: 10px;
+    line-height: 23px;
+    color: #403e3e;
+}
+.pm25-right-content p{
+    padding-top: 10px;
+    line-height: 23px;
+    color: rgb(64, 63, 63);
+}
+.pm25-left-content h3{
+    color: rgb(67, 65, 65);
+    font-weight: 500;
+}
+.pm25-right-content h3{
+    color: rgb(67, 65, 65);
+    font-weight: 500;
+
+}
+.headline animate__animated{
+    font-weight: 400;
+} */
+
+
+
+
+
+.pm25 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding-top: 100px;
+    padding-bottom: 150px;
+    
+}
+
+.pm25 h2 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.pm25-content {
+    display: flex;
+    gap: 80px;
+    padding-top: 70px;
+    justify-content: space-between;
+    align-items: center; /* Center align the content */
+}
+
+.pm25-left, .pm25-right {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.pm25-left-content, .pm25-right-content {
+    text-align: start; /* Aligned text for readability */
+}
+
+.pm25-left-content img, .pm25-right-content img {
+    width: 40px;
+}
+
+.pm25-left-content p, .pm25-right-content p {
+    padding-top: 10px;
+    line-height: 23px;
+    color: #403e3e;
+}
+
+.pm25-left-content h3, .pm25-right-content h3 {
+    color: rgb(67, 65, 65);
+    font-weight: 500;
+}
+
+/************************ ANIMATED DEVICE **************************/
+
+.animated-circle {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 80px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.center-image {
+    position: relative;
+    z-index: 2;
+    left: 13%;
+    top: -14%;
+    width: 300px;
+}
+
+.animated-circle::before, .animated-circle::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(0, 255, 0, 0.4); /* Green with transparency */
+    animation: grow-fade 3s infinite ease-in-out;
+}
+
+.animated-circle::before {
+    width: 100%;
+    height: 100%;
+}
+
+.animated-circle::after {
+    width: 150%;
+    height: 150%;
+    animation-delay: 1.5s; /* Staggered animation */
+}
+
+@keyframes grow-fade {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/************************ Responsive Design **************************/
+
+/* For tablets and smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .pm25-content {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center-align the content */
+        gap: 50px; /* Adjusted gap */
+    }
+
+    .pm25-left, .pm25-right {
+        width: 80%; /* Increase width for readability */
+    }
+
+    .animated-circle {
+        top: 0; /* Reset positioning for centered layout */
+    }
+
+    .center-image {
+        width: 200px; /* Scale down the center image for smaller screens */
+        left: 38px;
+        top: -30px;
+    }
+}
+
+/* For mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .pm25 h2 {
+        font-size: 23px; /* Reduce font size for smaller screens */
+    }
+
+    .pm25-content {
+        gap: 10px; /* Smaller gap for compact view */
+    }
+
+    .pm25-left, .pm25-right {
+        width: 100%; /* Full width for readability */
+        text-align: center; /* Center-align content for small screens */
+        display: flex;
+        gap: 30px;
+    }
+
+    .pm25-left-content img, .pm25-right-content img {
+        width: 30px; /* Smaller images */
+    }
+
+    .pm25-left-content p, .pm25-right-content p {
+        font-size: 14px; /* Reduce font size */
+    }
+
+    .center-image {
+        width: 400px; /* Further scale down the center image */
+    }
+    .pm25-left-content h3, .pm25-right-content h3{
+        font-size: 17px;
+    }
+}
+
+
+
+
+@media (max-width:915px){
+    .air-monitor-banner{
+        display: flex;
+        flex-direction: column; 
+        width: 85% ;
+    }
+                        
+    .banner-text-h2{
+        font-size: 3rem;
+    }
+}
+@media (max-width:500px){
+    .banner-text-h2{
+        font-size: 1.9rem;
+    }
+    #banner-text-p{
+        font-size: 1rem;
+    } 
+    
+    .banner-text-btn {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+        border-radius: 6px;
+    }
+}

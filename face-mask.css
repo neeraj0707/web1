@@ -1,0 +1,48 @@
+.facemask-container{
+    width: 84%;
+    padding-top: 100px;
+    margin: auto;
+    display: flex;
+    /* gap: 40px; */
+    flex-direction: column;
+}
+.facemask-heading{
+    font-size: 50px;
+    padding-bottom: 40px;
+    font-weight: 300;
+}
+.facemask-big-image{
+    width: 95%;
+    margin: auto;
+    padding-bottom: 30px;
+}
+.facemask-intro{
+    padding-bottom: 30px;
+}
+.facemask-p2{
+    margin-bottom: 20px;
+}
+.facemask-h2{
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 400;
+}
+.facemask-p3{
+    margin-bottom: 20px;
+}
+.facemask-p4{
+    margin-bottom: 20px;
+}
+.facemask-p5{
+    margin-bottom: 20px;
+}
+.facemask-h3{
+    font-size: 40px;
+    padding-top: 40px;
+}
+.facemask-img2{
+    width: 50%;
+    padding-bottom: 40px;
+    padding-top: 30px;
+   
+}

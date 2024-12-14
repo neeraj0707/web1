@@ -1,0 +1,146 @@
+/* .news-container{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.news-container h3{
+    font-size: 50px;
+    margin-top: 80px;
+}
+.news-content{
+    display: flex;
+    flex-direction: column;
+
+}
+.news-box{
+    display: flex;
+    flex-direction: column;
+}
+.news-image{
+    width: 20%;
+    margin-top: 300px;
+} */
+
+.news-container {
+    width: 100%;
+    padding: 20px; /* Add padding for spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align the content horizontally */
+    margin-top: 60px;
+}
+
+.news-container h3 {
+    font-size: 50px;
+    margin-top: 20px; /* Adjust the top margin */
+    text-align: center; /* Center-align the heading */
+}
+
+.news-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Add spacing between news boxes */
+    width: 70%; /* Adjust width for better layout */
+    margin: 0 auto; /* Center the content */
+    margin-top: 50px;
+}
+
+.news-box {
+    display: flex;
+    flex-direction: row; /* Align image and text side by side */
+    align-items: center; /* Center-align items vertically */
+    gap: 33px; /* Add spacing between image and text */
+    border: 1px solid #ccc; /* Optional: Add a border for visibility */
+    padding: 20px; /* Add padding for spacing */
+    background-color: #f9f9f9; /* Optional: Background color for better visibility */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.news-image {
+    width: 100%; /* Set a fixed width for the image */
+    height: auto;
+    max-width: 300px;
+    transition: transform 0.2s ease-in;
+    border-radius: 8px;
+}
+.news-image:hover{
+    transform: scale(1.05,1.06);
+    transform: scale(1.05,1.06);
+}
+.news-right {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    width: 70%;
+}
+.news-right a h4{
+    font-size: 20px;
+    font-weight: 500;
+}
+.news-right p{
+    color: rgb(51, 50, 50);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .news-content {
+        width: 85%; /* Reduce width for tablets */
+    }
+
+    .news-box {
+        gap: 15px; /* Adjust spacing between items */
+    }
+
+    .news-right a h4 {
+        font-size: 18px; /* Reduce font size for titles */
+    }
+
+    .news-right p {
+        font-size: 14px; /* Reduce font size for paragraphs */
+    }
+}
+
+@media (max-width: 768px) {
+    .news-box {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .news-image {
+        width: 100%; /* Image takes full width */
+        max-width: 300px; /* Set max width */
+    }
+
+    .news-content {
+        width: 90%; /* Further reduce content width for smaller screens */
+    }
+
+    .news-container h3 {
+        font-size: 40px; /* Adjust heading size */
+    }
+}
+
+@media (max-width: 480px) {
+    .news-container h3 {
+        font-size: 32px; /* Adjust heading size for small devices */
+    }
+
+    .news-content {
+        width: 100%; /* Full width on very small devices */
+    }
+
+    .news-box {
+        padding: 15px; /* Reduce padding */
+    }
+
+    .news-right a h4 {
+        font-size: 16px; /* Further reduce title font size */
+    }
+
+    .news-right p {
+        font-size: 12px; /* Further reduce paragraph font size */
+    }
+}
+

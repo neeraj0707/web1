@@ -1,0 +1,357 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'poppins';
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+    
+}  */
+.banner-airpurifier{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    padding-top: 110px;
+}
+.banner-airpurifier h3{
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+/* .banner-airpurifier img{
+    width: 100%;
+    margin: auto;
+} */
+.image-container {
+    display: flex;
+    justify-content: center;   /* Center text horizontally */
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 19%; /* Center vertically */
+    left: 41%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    color: #33811a;
+    font-size: 20px;
+    text-align: center;
+    /* background-color: white;  */
+    padding: 20px;
+    font-weight: 500;
+    border-radius: 80px;
+    width: 55%;
+    line-height: 50px;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+}
+
+.overlay-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 2s ease-out forwards;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+.airpurifier-section{
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+}
+.card-heading{
+    font-size: 25px;
+    font-weight: 500;
+    color: rgb(65, 64, 64);
+    text-align: center;
+}
+.card-airpurifier-container{
+    margin-top: 30px;
+    display: flex;
+    gap: 40px;
+    justify-content: space-around;
+}
+.airpurifier-cards {
+    margin-top: 30px;
+    display: grid;
+    place-items: center;
+    width: 80vw;
+    max-width: 21.875rem;
+    height: 28.125rem;
+    overflow: hidden;
+    border-radius: 0.625rem;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+  }
+  .airpurifier-cards > * {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  .card__background {
+    object-fit: cover;
+    max-width: 100%;
+    height: 100%;  
+  }
+  .card__content {
+    --flow-space: 0.9375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-end;
+    height: 55%;
+    padding: 12% 1.25rem 1.875rem;
+    background: linear-gradient(
+      180deg,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0.3) 10%,
+      hsl(0, 0%, 0%) 100%
+    );
+  }
+  
+  .card__content--container {
+    --flow-space: 1.25rem;
+  }
+  
+  .card__title {
+    color: rgb(255, 255, 255);
+    position: relative;
+    width: fit-content;
+    width: -moz-fit-content; /* Prefijo necesario para Firefox  */
+  }
+  
+  .card__title::after {
+    content: "";
+    position: absolute;
+    height: 0.3125rem;
+    width: calc(100% + 1.25rem);
+    bottom: calc((1.25rem - 0.5rem) * -1);
+    left: -1.25rem;
+    background-color: var(--brand-color);
+  }
+  
+  
+  @media (any-hover: hover) and (any-pointer: fine) {
+    .card__content {
+      transform: translateY(62%);
+      transition: transform 500ms ease-out;
+      transition-delay: 500ms;
+    }
+  
+    .card__title::after {
+      opacity: 0;
+      transform: scaleX(0);
+      transition: opacity 1000ms ease-in, transform 500ms ease-out;
+      transition-delay: 500ms;
+      transform-origin: right;
+    }
+  
+    .card__background {
+      transition: transform 500ms ease-in;
+    }
+  
+    .card__content--container > :not(.card__title),
+    .card__button {
+      opacity: 0;
+      transition: transform 500ms ease-out, opacity 500ms ease-out;
+    }
+  
+    .airpurifier-cards:hover,
+    .airpurifier-cards:focus-within {
+      transform: scale(1.05);
+      transition: transform 500ms ease-in;
+    }
+  
+    .airpurifier-cards:hover .card__content,
+    .airpurifier-cards:focus-within .card__content {
+      transform: translateY(0);
+      transition: transform 500ms ease-in;
+    }
+  
+    .airpurifier-cards:focus-within .card__content {
+      transition-duration: 0ms;
+    }
+  
+    .airpurifier-cards:hover .card__background,
+    .airpurifier-cards:focus-within .card__background {
+      transform: scale(1.3);
+    }
+  
+    .airpurifier-cards:hover .card__content--container > :not(.card__title),
+    .airpurifier-cards:hover .card__button,
+    .airpurifier-cards:focus-within .card__content--container > :not(.card__title),
+    .airpurifier-cards:focus-within .card__button {
+      opacity: 1;
+      transition: opacity 500ms ease-in;
+      transition-delay: 1000ms;
+    }
+  
+    .airpurifier-s:hover .card__title::after,
+    .airpurifier-cards:focus-within .card__title::after {
+      opacity: 1;
+      transform: scaleX(1);
+      transform-origin: left;
+      transition: opacity 500ms ease-in, transform 500ms ease-in;
+      transition-delay: 100ms;
+    }
+  }
+
+
+
+  /***************************************************************************/
+
+.card__content--container > *,
+.card__button {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 500ms ease-out, opacity 500ms ease-out;
+}
+
+.airpurifier-cards:hover .card__content--container > *,
+.airpurifier-cards:focus-within .card__content--container > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms ease-in, transform 500ms ease-in;
+  transition-delay: 1000ms;
+}
+  /***************************************************************************/
+
+
+ 
+  .card__description-p{
+    font-size: 17px;
+    padding-top: 15px;
+    color: rgb(255, 255, 255);
+  }
+  .living-banner-container{
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+    gap: 30px;
+  }
+  .living-banner-text{
+    text-align: center;
+  }
+  .living-banner{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    
+  }
+  .living-banner img{
+    margin: auto;
+    width: 70%;
+    /* height: 80%; */
+  }
+  .living-banner-text p:nth-child(1){
+    font-size: 20px;
+    color: rgb(50, 49, 49);
+    font-weight: 500;
+  }
+  .living-banner-text p:nth-child(2){
+    padding-top: 10px;
+    font-size: 27px;
+    font-weight: 500;
+    color: rgb(20, 20, 20);
+  }
+  .pollutants-info{
+    width: 80%;
+    display: flex;
+    gap: 60px; 
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    word-spacing: 2px;
+  }
+  .pollutants-info-upper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+  }
+  .pollutants-desc{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 40px;
+  }
+  .pollutants-info-lower{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .pollutants-desc h3{
+    color: rgb(51, 50, 50);
+    text-align: center;
+  }
+  .pollutants-desc p{
+    font-weight: 500;
+    color: rgb(97, 96, 96);
+    font-size: 15px;
+    line-height:25px;
+    text-align: center;
+    /* align-items: center; */
+  }
+  .faq-section{
+    width: 90%;
+    margin: auto;
+    padding-top: 100px;
+    padding-bottom: 70px;
+  }
+  .faq-section p{
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    color: rgb(53, 52, 52);
+    padding-bottom: 20px;
+  } 
+  .pop{
+    font-size: 3rem;
+  }
+  .accordion-button{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
+    font-size: 22px!important;
+    color: var(--bs-accordion-btn-color);
+    text-align: left;
+    background-color: var(--bs-accordion-btn-bg);
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: var(--bs-accordion-transition);
+}
+
+  
+  
