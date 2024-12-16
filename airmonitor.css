@@ -10,6 +10,7 @@
     align-items: start;
     padding-top: 130px;
     flex-direction: column;
+    gap: 5px;
 }
 .air-monitor-banner .banner-text {
     color: white;
@@ -73,7 +74,7 @@
 .banner-text{
     text-align: left;
     display: flex;
-    justify-content: flex-start;
+    /* justify-content: space-between; */
     /* flex-direction: column; */
     /* width: 60%; */
     /* gap: 44px; */
@@ -88,9 +89,10 @@
 }
 .main-images{
     display: flex;
-}
+} 
 .main-images img{
     width: 400px; 
+    object-fit: contain;
 }
 .banner-text-writing{
     width: 70%;
