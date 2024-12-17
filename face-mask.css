@@ -1,6 +1,6 @@
 .facemask-container{
     width: 84%;
-    padding-top: 100px;
+    padding-top: 110px;
     margin: auto;
     display: flex;
     /* gap: 40px; */
@@ -18,31 +18,52 @@
 }
 .facemask-intro{
     padding-bottom: 30px;
+    line-height: 1.6;
 }
 .facemask-p2{
     margin-bottom: 20px;
+    line-height: 1.6;
 }
 .facemask-h2{
-    margin-bottom: 20px;
+    margin-top: 27px;
     font-size: 25px;
     font-weight: 400;
 }
 .facemask-p3{
     margin-bottom: 20px;
+    line-height: 1.6;
+    margin-top: 25px;
 }
 .facemask-p4{
     margin-bottom: 20px;
+    line-height: 1.6;
 }
 .facemask-p5{
     margin-bottom: 20px;
+    line-height: 1.6;
 }
 .facemask-h3{
     font-size: 40px;
     padding-top: 40px;
+    font-weight: 400;
 }
 .facemask-img2{
     width: 50%;
     padding-bottom: 40px;
     padding-top: 30px;
    
+}
+@media (max-width:450px) {
+    .facemask-heading{
+        font-size: 40px;
+    }
+    .facemask-container{
+        margin-top: 10px;
+    }
+    .facemask-h3{
+        font-size: 28px;
+    }
+    .facemask-img2{
+        width: 100%;
+    }
 }

@@ -68,7 +68,7 @@
 
 .contact-us-banner {
     position: relative;
-    height: 500px; /* Adjust based on your banner height */
+    height: 600px; /* Adjust based on your banner height */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,6 +83,7 @@
     object-fit: cover; /* Ensures the image covers the banner area */
     position: absolute; /* Allows stacking with the gradient and text */
     z-index: -2; /* Sends the image behind other elements */
+    padding-top: 69px;
 }
 
 .contact-us-banner .overlay {
@@ -96,24 +97,25 @@
 }
 
 .contact-us-text {
-    display: flex;
-    flex-direction: column;
     text-align: left;
-    width: 50%;
-    gap: 20px;
+    width: 70%;
+    gap: 50px;
 }
 
 .contact-us-text h3 {
     font-size: 50px;
+    font-weight: 300;
+    padding-bottom: 34px;
 }
 
 .contact-us-text p {
     font-size: 20px;
-    line-height: 25px;
+    line-height: 30px;
+    font-weight: 300;
 }
 
 .contact-us-btn {
-    margin-top: 30px;
+    margin-top: 35px;
     font-size: 15px;
     color: white;
     background-color: #28a745;
@@ -132,7 +134,18 @@
 }
 
 
-
+@media (max-width:400px){
+    .contact-us-text{
+        margin-top: 100px;
+        margin-bottom: 60px;
+    }
+    .contact-us-text h3{
+        font-size: 45px;
+    }
+    .contact-us-text p{
+        font-size: 18px;
+    }
+}
 
 #contact-form-container {
     /* margin-top: 200px; */

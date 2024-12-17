@@ -103,6 +103,7 @@ html,body{
   align-items: center;
   position: relative;
   width: 100%;
+  margin-top: 20px;
 }
 
 .image-container img {
@@ -162,9 +163,10 @@ html,body{
 
   }
   .overlay-text{
-    font-size: 13px;
+    font-size: 11px;
     line-height: 1.3;
     left: 40%;
+    top: 25%;
   }
   .banner-airpurifier h3{
     font-size: 22px;
